@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../css/product-manager/dashboard.css" />
+  <title>Dashboard</title>
+  <style>
+    header {
+      position: relative;
+    }
+
+    .logout-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .logout-button button {
+      padding: 10px 20px;
+      background-color: #c9302c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .logout-button button:hover {
+      background-color: #d9534f;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .option button {
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #1f429b;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .option button:hover {
+      background-color: gray;
+      color: black;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #FFE179;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>E-Commerce Website</h1>
+    <div class="logout-button">
+      <a href="../../backend/product-manager/logout.php">
+        <button>Logout</button>
+      </a>
+    </div>
+  </header>
+  <h2 style="text-align:center;">Dashboard</h2>
+  <center>
+    <div class="options">
+      <div class="option">
+        <a href="add-product.html"><button>Add Product</button></a>
+      </div>
+      <div class="option">
+        <a href="update-inventory.html"><button>Update Inventory</button></a>
+      </div>
+      <div class="option">
+        <a href="change-price.html"><button>Change Price</button></a>
+      </div>
+      <div class="option">
+        <a href="manage-discounts.html"><button>Manage Discounts</button></a>
+      </div>
+      <div class="option">
+        <a href="assign-orders.php"><button>Assign Orders</button></a>
+      </div>
+      <div class="option">
+        <a href="approve-returns.php"><button>Approve Returns</button></a>
+      </div>
+    </div>
+  </center>
+  <footer>
+    <p>&copy; 2025 E-Commerce Website. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+/* Layout fix for body */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main grows to fill available space */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 30px;
+}
+
+/* Ensure form is centered and responsive */
+.form-container {
+    width: 100%;
+    max-width: 500px;
+}
+
+form {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}

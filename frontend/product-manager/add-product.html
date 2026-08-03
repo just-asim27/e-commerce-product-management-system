@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/product-manager/add-product.css" />
+    <title>Add Product</title>
+  </head>
+  <body>
+    <header>
+      <h1>E-Commerce Website</h1>
+    </header>
+    <div class="back-button-container">
+      <a href="dashboard.html" class="back-button">← Back</a>
+    </div>
+    <center>
+      <form
+        action="../../backend/product-manager/add-product.php"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <fieldset>
+          <h2><i>Add Product</i></h2>
+
+          <label>Product ID:</label><br />
+          <input
+            type="number"
+            name="product_id"
+            id="id"
+            required
+            minlength="1"
+            maxlength="3"
+          /><br /><br />
+          <label>Product Name:</label><br />
+          <input type="text" name="product_name" required /><br /><br />
+
+          <label>Category:</label><br />
+          <select name="category" required>
+            <option value="" disabled selected>Select Category</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Home & Kitchen">Home & Kitchen</option>
+            <option value="Personal Care">Personal Care</option>
+            <option value="Office & Study">Office & Study</option></select
+          ><br /><br />
+
+          <label>Sub Category:</label><br />
+          <select name="sub_category" required>
+            <option value="" disabled selected>Select Subcategory</option>
+
+            <optgroup label="Electronics">
+              <option value="Mobile Phones">Mobile Phones</option>
+              <option value="Earbuds">Earbuds</option>
+              <option value="Smartwatches">Smartwatches</option>
+              <option value="Cable & Chargers">Cable & Chargers</option>
+            </optgroup>
+
+            <optgroup label="Home & Kitchen">
+              <option value="Kitchen Tools">Kitchen Tools</option>
+              <option value="Table Lamps">Table Lamps</option>
+              <option value="Shelving Units">Shelving Units</option>
+              <option value="Clocks">Clocks</option>
+            </optgroup>
+
+            <optgroup label="Personal Care">
+              <option value="Grooming Tools">Grooming Tools</option>
+              <option value="Skincare Items">Skincare Items</option>
+              <option value="Compact Mirrors">Compact Mirrors</option>
+              <option value="Hand Sanitizers">Hand Sanitizers</option>
+            </optgroup>
+
+            <optgroup label="Office & Study">
+              <option value="Notebooks & Planners">Notebooks & Planners</option>
+              <option value="Writing Instruments">Writing Instruments</option>
+              <option value="Desk Organizers">Desk Organizers</option>
+              <option value="Sticky Notes & Labels">
+                Sticky Notes & Labels
+              </option>
+            </optgroup></select
+          ><br /><br />
+
+          <label>Product Price:</label><br />
+          <input
+            type="number"
+            name="product_price"
+            required
+            min="1"
+          /><br /><br />
+
+          <label>Product Quantity:</label><br />
+          <input
+            type="number"
+            name="product_quantity"
+            required
+            min="1"
+          /><br /><br />
+
+          <label>Product Discount:</label><br />
+          <input
+            type="number"
+            name="product_discount"
+            min="0"
+            step="0.01"
+            required
+          /><br /><br />
+
+          <label>Image:</label><br />
+          <input
+            type="file"
+            name="image"
+            accept="image/*"
+            required
+          /><br /><br />
+
+          <label>Product Description:</label><br />
+          <textarea
+            name="product_description"
+            class="description"
+            required
+          ></textarea
+          ><br /><br />
+
+          <button type="submit">Add Product</button>
+        </fieldset>
+      </form>
+    </center>
+    <footer>
+      <p>&copy; 2025 E-Commerce Website. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
