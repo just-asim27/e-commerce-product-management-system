@@ -1,5 +1,5 @@
 <?php
-include 'C:/xampp/htdocs/Project/website/backend/db-connection.php'; 
+include '../db-connection.php';
 session_start();
 
 $customer_id = $_SESSION['customer_id'] ?? null;
@@ -11,5 +11,5 @@ if ($customer_id && $product_id) {
     $stmt->execute();
 }
 
-header("Location: /Project/website/frontend/customer/view-cart.php");
+header("Location: ../../frontend/customer/view-cart.php");
 exit;

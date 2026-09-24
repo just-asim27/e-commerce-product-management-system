@@ -1,5 +1,5 @@
 <?php
-include 'C:/xampp/htdocs/Project/website/backend/db-connection.php';
+include '../db-connection.php';
 
 session_start();
 
@@ -30,7 +30,7 @@ if ($result && $result->num_rows > 0) {
     }
 }
 
-$link = "/Project/website/frontend/customer/customer-dashboard.html";
-header("Location: /Project/website/frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
+$link = "customer/products.html";
+header("Location: ../../frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
 exit();
 ?>

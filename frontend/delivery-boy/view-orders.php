@@ -5,7 +5,7 @@ session_start();
 include '../../backend/db-connection.php';
 
 if (!isset($_SESSION['delivery_boy_id'])) {
-    header("Location: /Project/website/frontend/delivery-boy/delivery-boy-login.html");
+    header("Location: login.html");
     exit;
 }
 
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mark_delivered'])) {
 </head>
 <body>
   <header>
-    <h1>E-Commerce Website</h1>
+    <h1>E-Commerce Product Management System</h1>
   </header>
   <main>
     <h2>Orders Assigned to You</h2>
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mark_delivered'])) {
     ?>
   </main>
   <footer>
-    <p>&copy; 2025 E-Commerce Website. All rights reserved.</p>
+    <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
   </footer>
 </body>
 </html>

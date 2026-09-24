@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>E-Commerce Website</h1>
+        <h1>E-Commerce Product Management System</h1>
     </header>
     <div class="back-button-container">
         <a href="manage-discounts.html" class="back-button">← Back</a>
@@ -28,7 +28,7 @@
     </center>
     <br><br>
     <footer>   
-        <p>&copy; 2025 E-Commerce Website. All rights reserved.</p>
+        <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
     </footer>
 </body>
 </html>

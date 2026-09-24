@@ -1,9 +1,9 @@
 <?php
 session_start();
-include 'C:/xampp/htdocs/Project/website/backend/db-connection.php';
+include '../../backend/db-connection.php';
 
 if (!isset($_SESSION['customer_id'])) {
-    header("Location: login.php");
+    header("Location: login.html");
     exit();
 }
 
@@ -42,20 +42,20 @@ $items_result = $connect->query($items_sql);
 <head>
     <meta charset="UTF-8">
     <title>Order Details</title>
-    <link rel="stylesheet" href="/Project/website/css/customer/order-details.css">
+    <link rel="stylesheet" href="../../css/customer/order-details.css">
 </head>
 <body>
 
 <header>
-    <h1>Order Details</h1>
+    <h1>E-Commerce Product Management System</h1>
     <nav>
         <ul>
-           <li><a href="/Project/website/frontend/customer/customer-dashboard.html">Home</a></li>
-      <li><a href="/Project/website/frontend/customer/view-purchases.php">Purchased Products</a></li>
-      <li><a href="/Project/website/frontend/customer/view-returns.php">Returns</a></li>
-      <li><a href="/Project/website/frontend/customer/view-orders.php">Orders</a></li>
-      <li><a href="/Project/website/frontend/customer/view-cart.php">Cart</a></li>
-      <li><a href="/Project/website/backend/customer/logout.php">Logout</a></li>
+           <li><a href="products.html">Home</a></li>
+      <li><a href="view-purchases.php">Purchased Products</a></li>
+      <li><a href="view-returns.php">Returns</a></li>
+      <li><a href="view-orders.php">Orders</a></li>
+      <li><a href="view-cart.php">Cart</a></li>
+      <li><a href="../../backend/customer/logout.php">Logout</a></li>
         </ul>
     </nav>
 </header>
@@ -80,7 +80,7 @@ $items_result = $connect->query($items_sql);
             $subtotal = $final_price * $item['quantity'];
         ?>
             <div class="bbq2">
-                <img src="<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['product_name']) ?>">
+                <img src="../../images/<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['product_name']) ?>">
                 <h3><?= htmlspecialchars($item['product_name']) ?></h3>
                 <p>Price: Rs. <?= number_format($final_price, 2) ?></p>
                 <p>Quantity: <?= $item['quantity'] ?></p>
@@ -92,13 +92,13 @@ $items_result = $connect->query($items_sql);
     <!-- RETURN BUTTON -->
     <?php if (trim(strtolower($order['shipping_status'])) === 'delivered'): ?>
         <div style="text-align: center; margin-top: 30px;">
-            <a class="btn-link" href="/Project/website/frontend/customer/return-request.php?order_id=<?= $order['order_id'] ?>">Return Items</a>
+            <a class="btn-link" href="return-request.php?order_id=<?= $order['order_id'] ?>">Return Items</a>
         </div>
     <?php endif; ?>
 </main>
 
 <footer>
-    <p>&copy; <?= date("Y") ?> My Store. All rights reserved.</p>
+    <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
 </footer>
 
 </body>

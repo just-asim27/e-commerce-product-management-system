@@ -5,7 +5,7 @@ session_start();
 include '../../backend/db-connection.php';
 
 if (!isset($_SESSION['manager_id'])) {
-    header("Location: /Project/website/frontend/login.php");
+    header("Location: login.html");
     exit;
 }
 
@@ -142,7 +142,7 @@ $manager_id = intval($_SESSION['manager_id']);
 <body>
 
   <header>
-    <h1>E-Commerce Website</h1>
+    <h1>E-Commerce Product Management System</h1>
     <div class="logout-button">
       <a href="../../backend/product-manager/logout.php">
         <button>Logout</button>
@@ -207,7 +207,7 @@ $manager_id = intval($_SESSION['manager_id']);
             $deliverySql = "SELECT delivery_boy_id, delivery_boy_name FROM delivery_boys ORDER BY delivery_boy_name ASC";
             $deliveryResult = $connect->query($deliverySql);
 
-            echo '<form class="assign-form" method="post" action="/Project/website/backend/product-manager/assign-order-handler.php">';
+            echo '<form class="assign-form" method="post" action="../../backend/product-manager/assign-order-handler.php">';
             echo '<input type="hidden" name="order_id" value="' . htmlspecialchars($orderId) . '">';
             echo '<select name="delivery_boy_id" required>';
             echo '<option value="" disabled selected>Assign Delivery Boy</option>';
@@ -237,7 +237,7 @@ $manager_id = intval($_SESSION['manager_id']);
   </div>
 
   <footer>
-    <p>&copy; 2025 E-Commerce Website. All rights reserved.</p>
+    <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
   </footer>
 
 </body>

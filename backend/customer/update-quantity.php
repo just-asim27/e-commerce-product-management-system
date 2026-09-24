@@ -1,5 +1,5 @@
 <?php
-include 'C:/xampp/htdocs/Project/website/backend/db-connection.php';
+include '../db-connection.php';
 session_start();
 
 $customer_id = $_SESSION['customer_id'] ?? null;
@@ -7,7 +7,7 @@ $product_id = $_POST['product_id'] ?? null;
 $action = $_POST['action'] ?? null;
 
 if (!$customer_id || !$product_id || !$action) {
-    header("Location: /Project/website/frontend/customer/view-cart.php");
+    header("Location: ../../frontend/customer/view-cart.php");
     exit;
 }
 
@@ -18,7 +18,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if (!$row = $result->fetch_assoc()) {
-    header("Location: /Project/website/frontend/customer/view-cart.php");
+    header("Location: ../../frontend/customer/view-cart.php");
     exit;
 }
 
@@ -31,7 +31,7 @@ $product_stmt->execute();
 $product_result = $product_stmt->get_result();
 
 if (!$product_row = $product_result->fetch_assoc()) {
-    header("Location: /Project/website/frontend/customer/view-cart.php");
+    header("Location: ../../frontend/customer/view-cart.php");
     exit;
 }
 
@@ -52,5 +52,5 @@ $update_stmt->bind_param("iii", $current_quantity, $customer_id, $product_id);
 $update_stmt->execute();
 
 // Redirect back to cart
-header("Location: /Project/website/frontend/customer/view-cart.php");
+header("Location: ../../frontend/customer/view-cart.php");
 exit;

@@ -5,7 +5,7 @@ session_start();
 include '../../backend/db-connection.php';
 
 if (!isset($_SESSION['manager_id'])) {
-    header("Location: /Project/website/frontend/login.php");
+    header("Location: login.html");
     exit;
 }
 
@@ -44,7 +44,7 @@ $manager_id = intval($_SESSION['manager_id']);
 <body>
 
   <header>
-    <h1>E-Commerce Website</h1>
+    <h1>E-Commerce Product Management System</h1>
     <div class="logout-button">
       <a href="../../backend/product-manager/logout.php"><button>Logout</button></a>
     </div>
@@ -111,7 +111,7 @@ $manager_id = intval($_SESSION['manager_id']);
   </div>
 
   <footer>
-    <p>&copy; 2025 E-Commerce Website. All rights reserved.</p>
+    <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
   </footer>
 
 </body>

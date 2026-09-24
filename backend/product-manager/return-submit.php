@@ -1,10 +1,10 @@
 <?php
 session_start();
-include 'C:/xampp/htdocs/Project/website/backend/db-connection.php';
+include '../db-connection.php';
 
 // Validate customer session
 if (!isset($_SESSION['customer_id'])) {
-    header("Location: /Project/website/frontend/customer/login.php");
+    header("Location: ../../frontend/customer/login.html");
     exit();
 }
 
@@ -13,11 +13,11 @@ $order_id = isset($_POST['order_id']) ? intval($_POST['order_id']) : 0;
 $return_quantities = $_POST['return_quantity'] ?? [];
 $return_reasons = $_POST['return_reason'] ?? [];
 
-$link = "/Project/website/frontend/customer/view-orders.php"; // Default link back
+$link = "../../frontend/customer/view-orders.php"; // Default link back
 
 if ($order_id === 0 || empty($return_quantities)) {
     $message = "Invalid return request. Please try again.";
-    header("Location: /Project/website/frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
+    header("Location: ../../frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
     exit();
 }
 
@@ -89,5 +89,5 @@ if ($inserted_any) {
 }
 
 // Redirect to universal message handler
-header("Location: /Project/website/frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
+header("Location: ../../frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
 exit();

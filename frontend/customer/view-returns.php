@@ -5,7 +5,7 @@ session_start();
 include '../../backend/db-connection.php';
 
 if (!isset($_SESSION['customer_id'])) {
-    header("Location: /Project/website/frontend/customer/customer-login.html");
+    header("Location: login.html");
     exit();
 }
 
@@ -38,7 +38,7 @@ $result = $stmt->get_result();
 </head>
 <body>
   <header>
-    <h1>E-Commerce Website</h1>
+    <h1>E-Commerce Product Management System</h1>
     <nav>
       <ul>
         <li><a href="products.html">Home</a></li>
@@ -65,7 +65,7 @@ $result = $stmt->get_result();
             <p><strong>Refund Status:</strong> <?php echo $row['refund_status']; ?></p>
             <p><strong>Pickup Status:</strong> <?php echo $row['picked_up_status']; ?></p>
             <div class="button">
-              <a href="/Project/website/frontend/customer/return-details.php?return_id=<?php echo $row['return_id']; ?>"><button>View Details</button></a>
+              <a href="return-details.php?return_id=<?php echo $row['return_id']; ?>"><button>View Details</button></a>
             </div>
           </div>
         <?php endwhile; ?>
@@ -75,7 +75,7 @@ $result = $stmt->get_result();
     </div>
   </main>
   <footer>
-    <p>&copy; 2025 E-Commerce Website. All rights reserved.</p>
+    <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
   </footer>
 </body>
 </html>

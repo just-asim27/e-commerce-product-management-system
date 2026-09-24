@@ -1,10 +1,10 @@
 <?php
 session_start();
-include 'C:/xampp/htdocs/Project/website/backend/db-connection.php';
+include '../db-connection.php';
 
 // Check customer session
 if (!isset($_SESSION['customer_id'])) {
-    header("Location: /Project/website/frontend/customer/login.php");
+    header("Location: ../../frontend/customer/login.html");
     exit();
 }
 
@@ -13,12 +13,12 @@ $order_id = isset($_POST['order_id']) ? intval($_POST['order_id']) : 0;
 $return_quantities = $_POST['return_quantity'] ?? [];
 $return_reasons = $_POST['return_reason'] ?? [];
 
-$link = "/Project/website/frontend/customer/view-orders.php"; // Redirect after message
+$link = "customer/view-orders.php"; // Redirect after message
 
 // Validation
 if ($order_id === 0 || empty($return_quantities)) {
     $message = "Invalid return request. Please try again.";
-    header("Location: /Project/website/frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
+    header("Location: ../../frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
     exit();
 }
 
@@ -33,7 +33,7 @@ $address_result = $address_stmt->get_result();
 
 if ($address_result->num_rows === 0) {
     $message = "Unable to fetch address for the return.";
-    header("Location: /Project/website/frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
+    header("Location: ../../frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
     exit();
 }
 
@@ -109,6 +109,6 @@ if ($inserted_any) {
     $message = "No valid return items found or return request failed.";
 }
 
-header("Location: /Project/website/frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
+header("Location: ../../frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
 exit();
 ?>

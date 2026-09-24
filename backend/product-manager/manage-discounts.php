@@ -3,7 +3,7 @@
 include '../db-connection.php';
 
 $product_id = $_POST['product_id'];
-$link = "product-manager/manager-dashboard.html";
+$link = "product-manager/dashboard.html";
 
 $select = "SELECT * FROM products WHERE product_id = '$product_id'";
 $result = $connect->query($select);

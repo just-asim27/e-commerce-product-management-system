@@ -1,5 +1,5 @@
 <?php
-include 'C:/xampp/htdocs/Project/website/backend/db-connection.php';
+include '../../backend/db-connection.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@ include 'C:/xampp/htdocs/Project/website/backend/db-connection.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assign Order</title>
-    <link rel="stylesheet" href="/Project/website/css/product-manager/manager-dashboard.css">
+    <link rel="stylesheet" href="../../css/product-manager/dashboard.css">
     <style>
         html, body {
             margin: 0;
@@ -93,7 +93,7 @@ include 'C:/xampp/htdocs/Project/website/backend/db-connection.php';
 </head>
 <body>
     <header>
-        <h1>E-Commerce Website</h1>
+        <h1>E-Commerce Product Management System</h1>
     </header>
 
     <div class="main-content">
@@ -112,7 +112,7 @@ include 'C:/xampp/htdocs/Project/website/backend/db-connection.php';
                     echo 'Phone: ' . htmlspecialchars($row['delivery_boy_phone']) . '<br>';
                     echo 'Email: ' . htmlspecialchars($row['delivery_boy_email']);
                     echo '</div>';
-                    echo '<form action="orders.php" method="post">';
+                    echo '<form action="../../backend/product-manager/assign-order-handler.php" method="post">';
                     echo '<input type="hidden" name="delivery_boy_id" value="' . $row['delivery_boy_id'] . '">';
                     echo '<button type="submit" class="assign-button">Assign Order</button>';
                     echo '</form>';
@@ -128,7 +128,7 @@ include 'C:/xampp/htdocs/Project/website/backend/db-connection.php';
     </div>
 
     <footer>
-        <p>&copy; 2025 E-Commerce Website. All rights reserved.</p>
+        <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
     </footer>
 </body>
 </html>

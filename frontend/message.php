@@ -1,7 +1,10 @@
 <?php
 
-$message = $_REQUEST["message"];
-$link = $_REQUEST["link"];
+$message = trim($_GET["message"] ?? "An unexpected error occurred.");
+if ($message === "" || substr($message, -1) !== "!") {
+    $message = rtrim($message, ".!?") . "!";
+}
+$link = $_GET["link"] ?? "../index.html";
 
 ?>
 
@@ -75,14 +78,14 @@ $link = $_REQUEST["link"];
 </style>
 <body>
     <header>
-        <h1>E-Commerce Website</h1>
+        <h1>E-Commerce Product Management System</h1>
     </header>
     <center>
-        <h2 style="color: white;"><?php echo $message; ?></h2>
-        <a href="<?php echo $link; ?>"><button>Go Back</button></a>
+        <h2 style="color: white;"><?php echo htmlspecialchars($message, ENT_QUOTES, 'UTF-8'); ?></h2>
+        <a href="<?php echo htmlspecialchars($link, ENT_QUOTES, 'UTF-8'); ?>"><button>Go Back</button></a>
     </center>
     <footer>   
-        <p>&copy; 2025 E-Commerce Website. All rights reserved.</p>
+        <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
     </footer>
 </body>
 </html>

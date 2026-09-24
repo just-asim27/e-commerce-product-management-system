@@ -13,21 +13,24 @@ $select = "SELECT * FROM Customers WHERE customer_email='$customer_email'";
 $result = $connect -> query($select);
 
 if ($result -> num_rows > 0) {
-    $link = "../../frontend/customer/sign-up.html";
-    $message = "Email already exists";
-    header("Location: ../../frontend/message.php?message=" .$message ."&link=" .$link);
+    $link = "customer/sign-up.html";
+    $message = "Email already exists!";
+    header("Location: ../../frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
+    exit;
 } else {
     $sql = "INSERT INTO Customers (customer_name, customer_email, customer_password, customer_phone, customer_address, registration_date) 
     VALUES ('$customer_name', '$customer_email', '$customer_password', '$customer_phone', '$customer_address', '$registration_date')";
     $result = $connect -> query($sql);
     if ($result) {
         $link = "customer/login.html";
-        $message = "Account created successfully";
-        header("Location: ../../frontend/message.php?message=" .$message ."&link=" .$link);
+        $message = "Account created successfully!";
+        header("Location: ../../frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
+        exit;
     } else {
-        $link = "../../frontend/customer/sign-up.html";
-        $message = "Registration failed";
-        header("Location: ../../frontend/message.php?message=" .$message ."&link=" .$link);
+        $link = "customer/sign-up.html";
+        $message = "Registration failed!";
+        header("Location: ../../frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
+        exit;
     }
 }
 

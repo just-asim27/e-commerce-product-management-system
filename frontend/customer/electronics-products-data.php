@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-        <h1>E-Commerce Website</h1>
+        <h1>E-Commerce Product Management System</h1>
         <nav>
             <ul>
                 <li><a href="products.html">Home</a></li>
@@ -56,7 +56,7 @@
     ?>
     </main>
     <footer>
-        <p>&copy; 2025 E-Commerce Website. All rights reserved.</p>
+        <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
     </footer>
 </body>
 </html>

@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-        <h1>E-Commerce Website</h1>
+        <h1>E-Commerce Product Management System</h1>
         <nav>
             <ul>
                 <li><a href="products.html">Home</a></li>
@@ -41,7 +41,7 @@
                 echo "<h3>" . $row['product_name'] . "</h3>";
                 echo "<p style='color: #fff; text-align: center;'>Price: $" . $row['product_price'] . "</p>";
                 echo "<div class='button'>";
-                echo "<a href='/Project/website/frontend/customer/product-details.php?id=" . $row['product_id'] . "'><button>View Details</button></a>";
+                echo "<a href='product-details.php?id=" . $row['product_id'] . "'><button>View Details</button></a>";
                 echo "</div>";
                 echo "</div>";
             }
@@ -58,7 +58,7 @@
         ?>
     </main>
     <footer>
-        <p>&copy; 2025 Your Store</p>
+        <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
     </footer>
 </body>
 </html>

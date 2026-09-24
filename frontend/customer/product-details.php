@@ -15,10 +15,10 @@
 </head>
 <body>
     <header>
-        <h1>E-Commerce Website</h1>
+        <h1>E-Commerce Product Management System</h1>
         <nav>
             <ul>
-                <li><a href="dashboard.html">Home</a></li>
+                <li><a href="products.html">Home</a></li>
                 <li><a href="view-purchases.php">Purchased Products</a></li>
                 <li><a href="view-returns.php">Returns</a></li>
                 <li><a href="view-orders.php">Orders</a></li>
@@ -119,7 +119,7 @@
         ?>
     </main>
     <footer>
-        <p>&copy; 2025 E-Commerce Website. All rights reserved.</p>
+        <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
     </footer>
 </body>
 </html>

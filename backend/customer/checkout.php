@@ -1,5 +1,5 @@
 <?php
-include 'C:/xampp/htdocs/Project/website/backend/db-connection.php';
+include '../db-connection.php';
 session_start();
 
 $customer_id = $_SESSION['customer_id'];
@@ -29,7 +29,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows === 0) {
-    header("Location: /Project/website/frontend/customer/view-cart.php?message=Cart is empty");
+    header("Location: ../../frontend/customer/view-cart.php?message=Cart is empty");
     exit;
 }
 
@@ -93,8 +93,8 @@ $stmt_clear->execute();
 
 // 6. Redirect to success message
 $message = "Order placed successfully. Your Order ID is #" . $order_id;
-$link = "/Project/website/frontend/customer/customer-dashboard.html";
+$link = "customer/products.html";
 
-header("Location: /Project/website/frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
+header("Location: ../../frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
 exit;
 ?>

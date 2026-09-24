@@ -42,7 +42,7 @@ while ($review_row = $reviews_result->fetch_assoc()) {
 <body>
 <div class="wrapper">
     <header>
-        <h1>E-Commerce Website</h1>
+        <h1>E-Commerce Product Management System</h1>
         <nav>
             <ul>
                 <li><a href="products.html">Home</a></li>
@@ -61,15 +61,15 @@ while ($review_row = $reviews_result->fetch_assoc()) {
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<div class='bbq2'>";
-                echo "<img src='" . $row['image'] . "' alt='" . $row['product_name'] . "'>";
+                echo "<img src='../../images/" . htmlspecialchars($row['image'], ENT_QUOTES, 'UTF-8') . "' alt='" . htmlspecialchars($row['product_name'], ENT_QUOTES, 'UTF-8') . "'>";
                 echo "<h3>" . $row['product_name'] . "</h3>";
                 echo "<p class='product-price'>Price: $" . $row['product_price'] . "</p>";
                 echo "<div class='button'>";
 
                 if (isset($customer_reviews[$row['product_id']])) {
-                    echo "<a href='/Project/website/frontend/customer/update-review.php?product_id=" . $row['product_id'] . "'><button>Update Review</button></a>";
+                    echo "<a href='update-review.php?product_id=" . $row['product_id'] . "'><button>Update Review</button></a>";
                 } else {
-                    echo "<a href='/Project/website/frontend/customer/give-review.php?product_id=" . $row['product_id'] . "'><button>Give Review</button></a>";
+                    echo "<a href='give-review.php?product_id=" . $row['product_id'] . "'><button>Give Review</button></a>";
                 }
 
                 echo "</div>";
@@ -82,7 +82,7 @@ while ($review_row = $reviews_result->fetch_assoc()) {
         </div>
     </main>
     <footer>
-        <p>&copy; 2025 E-Commerce Website. All rights reserved.</p>
+        <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
     </footer>
 </div>
 </body>

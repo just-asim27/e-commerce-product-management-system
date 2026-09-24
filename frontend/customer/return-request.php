@@ -1,9 +1,9 @@
 <?php
 session_start();
-include 'C:/xampp/htdocs/Project/website/backend/db-connection.php';
+include '../../backend/db-connection.php';
 
 if (!isset($_SESSION['customer_id'])) {
-    header("Location: /Project/website/frontend/customer/login.php");
+    header("Location: login.html");
     exit();
 }
 
@@ -221,15 +221,15 @@ $items_result = $stmt2->get_result();
 <body>
 
 <header>
-  <h1>E-Commerce Website</h1>
+  <h1>E-Commerce Product Management System</h1>
   <nav>
     <ul>
-      <li><a href="/Project/website/frontend/customer/customer-dashboard.html">Home</a></li>
-      <li><a href="/Project/website/frontend/customer/view-purchases.php">Purchased Products</a></li>
-      <li><a href="/Project/website/frontend/customer/view-returns.php">Returns</a></li>
-      <li><a href="/Project/website/frontend/customer/view-orders.php">Orders</a></li>
-      <li><a href="/Project/website/frontend/customer/view-cart.php">Cart</a></li>
-      <li><a href="/Project/website/backend/customer/logout.php">Logout</a></li>
+      <li><a href="products.html">Home</a></li>
+      <li><a href="view-purchases.php">Purchased Products</a></li>
+      <li><a href="view-returns.php">Returns</a></li>
+      <li><a href="view-orders.php">Orders</a></li>
+      <li><a href="view-cart.php">Cart</a></li>
+      <li><a href="../../backend/customer/logout.php">Logout</a></li>
     </ul>
   </nav>
 </header>
@@ -237,7 +237,7 @@ $items_result = $stmt2->get_result();
 <main>
   <h2>Return Items for Order #<?= htmlspecialchars($order_id) ?></h2>
 
-  <form action="/Project/website/backend/customer/return-submit.php" method="POST">
+  <form action="../../backend/customer/return-submit.php" method="POST">
     <input type="hidden" name="order_id" value="<?= htmlspecialchars($order_id) ?>">
 
     <table>
@@ -255,7 +255,7 @@ $items_result = $stmt2->get_result();
         <tr>
           <td><?= htmlspecialchars($item['product_name']) ?></td>
           <td>
-            <img src="<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['product_name']) ?>" />
+            <img src="../../images/<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['product_name']) ?>" />
           </td>
           <td><?= intval($item['quantity']) ?></td>
           <td>
@@ -285,7 +285,7 @@ $items_result = $stmt2->get_result();
 </main>
 
 <footer>
-  <p>&copy; <?= date("Y") ?> E-Commerce Website. All rights reserved.</p>
+  <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
 </footer>
 
 </body>

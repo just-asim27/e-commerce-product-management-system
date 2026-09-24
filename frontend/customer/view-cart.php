@@ -46,7 +46,7 @@ $result = $connect->query($query);
 </head>
 <body>
     <header>
-        <h1>E-Commerce Website</h1>
+        <h1>E-Commerce Product Management System</h1>
         <nav>
             <ul>
                 <li><a href="products.html">Home</a></li>
@@ -64,10 +64,10 @@ $result = $connect->query($query);
             <?php if ($result && $result->num_rows > 0): ?>
                 <?php while ($row = $result->fetch_assoc()): ?>
                     <div class="bbq2">
-                        <img src="<?php echo htmlspecialchars($row['image']); ?>" alt="Product">
+                        <img src="../../images/<?php echo htmlspecialchars($row['image']); ?>" alt="Product">
                         <h3><?php echo htmlspecialchars($row['product_name']); ?></h3>
 
-                        <form class="quantity-controls" method="POST" action="/Project/website/backend/customer/update-quantity.php">
+                        <form class="quantity-controls" method="POST" action="../../backend/customer/update-quantity.php">
                             <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
                         
                             <button type="submit" name="action" value="decrease">−</button>
@@ -75,7 +75,7 @@ $result = $connect->query($query);
                             <button type="submit" name="action" value="increase">+</button>
                         </form>
 
-                        <form action="/Project/website/backend/customer/remove-from-cart.php" method="POST">
+                        <form action="../../backend/customer/remove-from-cart.php" method="POST">
                             <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
                             <button type="submit">Remove</button>
                         </form>
@@ -85,14 +85,14 @@ $result = $connect->query($query);
                 <p style="color:white; font-size:20px;">Your cart is empty.</p>
             <?php endif; ?>
         </div>
-        <form method="POST" action="/Project/website/backend/customer/checkout.php">
+        <form method="POST" action="../../backend/customer/checkout.php">
             <button type="submit" class="checkout-button">
                 Checkout
             </button>
         </form>
     </main>
     <footer>
-        <p>&copy; <?php echo date("Y"); ?> E-Commerce Website. All rights reserved.</p>
+        <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
     </footer>
 </body>
 </html>

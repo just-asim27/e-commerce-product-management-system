@@ -1,9 +1,9 @@
 <?php
 session_start();
-include 'C:/xampp/htdocs/Project/website/backend/db-connection.php';
+include '../../backend/db-connection.php';
 
 if (!isset($_SESSION['customer_id'])) {
-    header("Location: login.php");
+    header("Location: login.html");
     exit();
 }
 
@@ -48,20 +48,20 @@ $order = $stmt->get_result()->fetch_assoc();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="/Project/website/css/customer/order-details.css" />
+  <link rel="stylesheet" href="../../css/customer/order-details.css" />
   <title>Return Details</title>
 </head>
 <body>
   <header>
-    <h1>Return Details</h1>
+    <h1>E-Commerce Product Management System</h1>
     <nav>
       <ul>
-        <li><a href="/Project/website/frontend/customer/customer-dashboard.html">Home</a></li>
-                <li><a href="/Project/website/frontend/customer/view-purchases.php">Purchased Products</a></li>
-                <li><a href="/Project/website/frontend/customer/view-returns.php">Returns</a></li>
-                <li><a href="/Project/website/frontend/customer/view-orders.php">Orders</a></li>
-                <li><a href="/Project/website/frontend/customer/view-cart.php">Cart</a></li>
-                <li><a href="/Project/website/backend/customer/logout.php">Logout</a></li>
+        <li><a href="products.html">Home</a></li>
+                <li><a href="view-purchases.php">Purchased Products</a></li>
+                <li><a href="view-returns.php">Returns</a></li>
+                <li><a href="view-orders.php">Orders</a></li>
+                <li><a href="view-cart.php">Cart</a></li>
+                <li><a href="../../backend/customer/logout.php">Logout</a></li>
       </ul>
     </nav>
   </header>
@@ -85,14 +85,14 @@ $order = $stmt->get_result()->fetch_assoc();
 
     <div class="Pics">
       <div class="bbq2">
-        <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['product_name']) ?>">
+        <img src="../../images/<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['product_name']) ?>">
         <h3><?= htmlspecialchars($product['product_name']) ?></h3>
       </div>
     </div>
   </main>
 
   <footer>
-    <p>&copy; <?= date("Y") ?> My Store. All rights reserved.</p>
+    <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
   </footer>
 </body>
 </html>

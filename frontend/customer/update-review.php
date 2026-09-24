@@ -1,9 +1,9 @@
 <?php
-include 'C:/xampp/htdocs/Project/website/backend/db-connection.php';
+include '../../backend/db-connection.php';
 session_start();
 
 if (!isset($_SESSION['customer_id'])) {
-    header("Location: /Project/website/frontend/customer/login.php");
+    header("Location: login.html");
     exit;
 }
 
@@ -11,7 +11,7 @@ $customer_id = $_SESSION['customer_id'];
 $product_id = $_GET['product_id'] ?? null;
 
 if (!$product_id) {
-    header("Location: /Project/website/frontend/message.php?message=Product not specified&link=/Project/website/frontend/customer/index.php");
+    header("Location: ../message.php?message=" . urlencode("Product not specified") . "&link=" . urlencode("customer/products.html"));
     exit;
 }
 
@@ -24,8 +24,8 @@ $review_result = $review_stmt->get_result();
 
 if ($review_result->num_rows === 0) {
     $message = "No review found to update for this product.";
-    $link = "/Project/website/frontend/customer/view-purchases.php";
-    header("Location: /Project/website/frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
+    $link = "customer/view-purchases.php";
+    header("Location: ../message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
     exit;
 }
 
@@ -48,8 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($stmt->execute()) {
         $message = "Review updated successfully!";
-        $link = "/Project/website/frontend/customer/view-purchases.php";
-        header("Location: /Project/website/frontend/message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
+        $link = "customer/view-purchases.php";
+        header("Location: ../message.php?message=" . urlencode($message) . "&link=" . urlencode($link));
         exit;
     } else {
         die("Error updating review: " . $connect->error);
@@ -62,12 +62,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Update Review</title>
-    <link rel="stylesheet" href="/Project/website/css/product-manager/add-product.css">
+    <link rel="stylesheet" href="../../css/product-manager/add-product.css">
 </head>
 <body>
 
     <header>
-        <h1>E-Commerce Website</h1>
+        <h1>E-Commerce Product Management System</h1>
     </header>
 
     <center>
@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </center>
 
     <footer style = "margin-top: 72px;">
-        <p>&copy; 2025 E-Commerce Website. All rights reserved.</p>
+        <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
     </footer>
 
 </body>

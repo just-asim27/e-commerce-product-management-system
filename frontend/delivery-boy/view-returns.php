@@ -86,8 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mark_picked_up'])) {
         $message = urlencode("Error processing return: " . $e->getMessage());
     }
 
-    $link = urlencode("/Project/website/frontend/delivery-boy/view-returns.php");
-    header("Location: /Project/website/frontend/message.php?message={$message}&link={$link}");
+    $link = urlencode("delivery-boy/view-returns.php");
+    header("Location: ../message.php?message={$message}&link={$link}");
     exit;
 }
 
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mark_picked_up'])) {
 </head>
 <body>
   <header>
-    <h1>E-Commerce Website</h1>
+    <h1>E-Commerce Product Management System</h1>
   </header>
   <main>
     <h2>Returns Assigned to You</h2>
@@ -167,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mark_picked_up'])) {
     ?>
   </main>
   <footer>
-    <p>&copy; 2025 E-Commerce Website. All rights reserved.</p>
+    <p>&copy; 2025 E-Commerce Product Management System. All rights reserved.</p>
   </footer>
 </body>
 </html>

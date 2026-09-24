@@ -1,9 +1,9 @@
 <?php
 session_start();
-include 'C:/xampp/htdocs/Project/website/backend/db-connection.php';
+include '../db-connection.php';
 
 if (!isset($_SESSION['manager_id'])) {
-    header("Location: /Project/website/frontend/product-manager/login.php");
+    header("Location: ../../frontend/product-manager/login.html");
     exit;
 }
 
@@ -48,14 +48,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Redirect link to assign order page in frontend
     
-    $link = urlencode("/Project/website/frontend/product-manager/manager-dashborad.html");
-    header("Location: /Project/website/frontend/message.php?message={$message}&link={$link}");
+    $link = urlencode("product-manager/dashboard.html");
+    header("Location: ../../frontend/message.php?message={$message}&link={$link}");
     exit;
 
 } else {
     // If the request method is not POST
     $message = urlencode("Invalid request method.");
-    $link = urlencode("/Project/website/frontend/product-manager/assign-order.php");
-    header("Location: /Project/website/frontend/message.php?message={$message}&link={$link}");
+    $link = urlencode("product-manager/assign-orders.php");
+    header("Location: ../../frontend/message.php?message={$message}&link={$link}");
     exit;
 }
